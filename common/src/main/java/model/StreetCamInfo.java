@@ -1,6 +1,8 @@
-package io.github.aleknik.streetcamloader.model;
+package model;
 
-public class StreetCamInfo {
+import java.io.Serializable;
+
+public class StreetCamInfo implements Serializable {
 
     private String name;
     private String imageUrl;

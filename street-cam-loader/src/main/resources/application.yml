@@ -1,0 +1,3 @@
+topic-exchange-name: street-cam-exchange
+routing-key: street.cam.*
+queue-name: street.cam.image

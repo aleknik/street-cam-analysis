@@ -1,7 +1,7 @@
 package io.github.aleknik.streetcamloader.service;
 
-import io.github.aleknik.streetcamloader.model.StreetCamInfo;
 import io.github.aleknik.streetcamloader.model.dto.TravelApiResponseWrapper;
+import model.StreetCamInfo;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
