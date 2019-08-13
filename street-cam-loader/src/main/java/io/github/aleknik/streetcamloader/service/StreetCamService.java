@@ -1,6 +1,7 @@
 package io.github.aleknik.streetcamloader.service;
 
 import io.github.aleknik.streetcamloader.model.dto.TravelApiResponseWrapper;
+import io.github.aleknik.streetcamloader.util.ImageDownloader;
 import model.StreetCamInfo;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,7 +44,18 @@ public class StreetCamService {
                 TravelApiResponseWrapper.class);
 
         return response.getBody().getResult().getWebcams().stream()
-                .map(x -> new StreetCamInfo(x.getId(), x.getImage().getCurrent().getPreview()))
+                .map(x -> new StreetCamInfo(x.getId(),
+                        x.getTitle(),
+                        x.getImage().getCurrent().getPreview(),
+                        imageToBase64(x.getImage().getCurrent().getPreview()),
+                        x.getLocation().getLatitude(),
+                        x.getLocation().getLongitude(),
+                        new Date()))
                 .collect(Collectors.toList());
+    }
+
+    private String imageToBase64(String url) {
+        final byte[] image = ImageDownloader.download(url);
+        return Base64.getEncoder().encodeToString(image);
     }
 }

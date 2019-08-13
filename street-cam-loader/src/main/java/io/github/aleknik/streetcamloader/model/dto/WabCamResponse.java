@@ -3,6 +3,7 @@ package io.github.aleknik.streetcamloader.model.dto;
 public class WabCamResponse {
 
     private String id;
+    private String title;
     private ImageResponse image;
     private LocationResponse location;
 
@@ -29,5 +30,13 @@ public class WabCamResponse {
 
     public void setLocation(LocationResponse location) {
         this.location = location;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
