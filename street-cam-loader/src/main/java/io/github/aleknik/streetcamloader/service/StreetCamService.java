@@ -15,6 +15,34 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//        airport (Airport)
+//        area (Area)
+//        bay (Bay)
+//        beach (Beach)
+//        building (Building)
+//        camping (Camping)
+//        city (City)
+//        coast (Coast)
+//        forest (Forest)
+//        golf (Golfcourse)
+//        harbor (Harbor)
+//        resort (Holiday Resort)
+//        island (Island)
+//        lake (Lake/River)
+//        marketplace (Marketplace)
+//        mountain (Mountain/Canyon)
+//        other (Other)
+//        landscape (Outdoor)
+//        park (Park)
+//        pool (Pool)
+//        indoor (Public Indoor)
+//        meteo (Sky)
+//        sportarea (Sport Area)
+//        square (Square/Alley)
+//        traffic (Street/Traffic)
+//        underwater (Underwater)
+//        water (Water)
+
 @Service
 public class StreetCamService {
 
@@ -26,7 +54,7 @@ public class StreetCamService {
 
     public List<StreetCamInfo> getCameras() {
 
-        String url = "https://webcamstravel.p.rapidapi.com/webcams/list/category=traffic/orderby=popularity";
+        String url = "https://webcamstravel.p.rapidapi.com/webcams/list/category=square,park,marketplace,traffic/orderby=popularity";
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-rapidapi-key", "0b89c7c422msh7784d5c4cfba68ep1b446cjsn77ba16461134");
