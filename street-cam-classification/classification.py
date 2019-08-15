@@ -1,21 +1,18 @@
 import time
 
 import numpy as np
-from gluoncv import model_zoo, data, utils
+from gluoncv import model_zoo, data
 
 net = model_zoo.get_model('faster_rcnn_resnet101_v1d_coco', pretrained=True)
 
 
 # net = model_zoo.get_model('yolo3_darknet53_voc', pretrained=True)
 
-def count_frequency(my_list):
+def count_frequency(my_list, labels):
     # Creating an empty dictionary
-    freq = {}
+    freq = {i: 0 for i in labels}
     for item in my_list:
-        if item in freq:
-            freq[item] += 1
-        else:
-            freq[item] = 1
+        freq[item] += 1
 
     return freq
 
@@ -34,4 +31,4 @@ def predict(img):
 
     detected = labels[box_ids[scores > threshold]]
 
-    return 'counts: %s, time: %s' % (str(count_frequency(detected)), str(end - start))
+    return count_frequency(detected, labels)
