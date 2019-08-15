@@ -23,7 +23,7 @@ public class TestController {
     }
 
     @GetMapping("/test")
-    ResponseEntity findAll() {
+    public ResponseEntity findAll() {
         final List<StreetCamInfo> cameras = streetCamService.getCameras();
 
         for (StreetCamInfo camera : cameras) {

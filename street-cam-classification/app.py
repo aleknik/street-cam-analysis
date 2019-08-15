@@ -12,8 +12,8 @@ from classification import predict
 app = Flask(__name__)
 
 
-@app.route('/api/predict', methods=['POST'])
-def hello_world():
+@app.route('/api/detect', methods=['POST'])
+def detect():
     json_data = request.get_json()
 
     decoded = base64.b64decode(json_data['data'])

@@ -14,9 +14,11 @@ public class MessageReceiver {
     private static final Logger log = LoggerFactory.getLogger(MessageReceiver.class);
 
     private final DetectionService detectionService;
+    private final CameraIndexerService cameraIndexerService;
 
-    public MessageReceiver(DetectionService detectionService) {
+    public MessageReceiver(DetectionService detectionService, CameraIndexerService cameraIndexerService) {
         this.detectionService = detectionService;
+        this.cameraIndexerService = cameraIndexerService;
     }
 
     @RabbitListener(queues = "${queue-name}")
@@ -24,6 +26,9 @@ public class MessageReceiver {
         log.info("Received message: {}", streetCamInfo.getImageUrl());
 
         final DetectionResponse detected = detectionService.detect(new DetectionRequest(streetCamInfo.getImgBase64()));
+
+        cameraIndexerService.index(detected, streetCamInfo.getDate(), streetCamInfo.getLatitude(),
+                streetCamInfo.getLongitude(), streetCamInfo.getName(), streetCamInfo.getId());
 
         log.info("People detected: {}", detected.getPerson());
     }

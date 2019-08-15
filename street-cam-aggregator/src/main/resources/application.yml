@@ -1,3 +1,7 @@
 server.port: 8081
 queue-name: street.cam.image
 detection-api: http://127.0.0.1:5000/api
+
+elasticsearch.clustername: street-cam-app
+elasticsearch.host: localhost
+elasticsearch.port: 9300
