@@ -24,7 +24,7 @@ public class TestController {
 
     @GetMapping("/test")
     public ResponseEntity findAll() {
-        final List<StreetCamInfo> cameras = streetCamService.getCameras();
+        final List<StreetCamInfo> cameras = streetCamService.getCameras(50, 0);
 
         for (StreetCamInfo camera : cameras) {
             messageSenderService.send(camera);

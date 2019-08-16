@@ -52,9 +52,9 @@ public class StreetCamService {
         this.restTemplate = restTemplate;
     }
 
-    public List<StreetCamInfo> getCameras() {
+    public List<StreetCamInfo> getCameras(int limit, int offset) {
 
-        String url = "https://webcamstravel.p.rapidapi.com/webcams/list/category=square/orderby=popularity";
+        String url = String.format("https://webcamstravel.p.rapidapi.com/webcams/list/orderby=popularity,desc/property=hd/limit=%d,%d", limit, offset);
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-rapidapi-key", "0b89c7c422msh7784d5c4cfba68ep1b446cjsn77ba16461134");
