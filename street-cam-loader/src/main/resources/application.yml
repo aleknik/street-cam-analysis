@@ -1,3 +1,9 @@
 topic-exchange-name: street-cam-exchange
 routing-key: street.cam.*
 queue-name: street.cam.image
+offset-start: ${OFFSET-START}
+offset-end: ${OFFSET-END}
+
+spring:
+  rabbitmq:
+    host: ${RABBITMQ-HOST}

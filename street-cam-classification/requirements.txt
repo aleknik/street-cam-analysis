@@ -1,3 +1,3 @@
-flask
-mxnet-cu101
+Flask
+mxnet
 gluoncv

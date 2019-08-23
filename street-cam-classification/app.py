@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route('/api/detect', methods=['POST'])
 def detect():
     json_data = request.get_json()
-
+    print('Request received')
     decoded = base64.b64decode(json_data['data'])
     image = Image.open(io.BytesIO(decoded))
     data = predict(mx.nd.array(image))
@@ -27,5 +27,10 @@ def detect():
     return resp
 
 
-if __name__ == '__main__':
-    app.run()
+@app.route('/', methods=['GET'])
+def check():
+    return Response(status=200)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')

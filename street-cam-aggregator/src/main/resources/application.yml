@@ -1,7 +1,11 @@
 server.port: 8081
 queue-name: street.cam.image
-detection-api: http://127.0.0.1:5000/api
+detection-api: ${DETECTION-API}
 
 elasticsearch.clustername: street-cam-app
-elasticsearch.host: localhost
+elasticsearch.host: ${ELASTICSEARCH-HOST}
 elasticsearch.port: 9300
+
+spring:
+  rabbitmq:
+    host: ${RABBITMQ-HOST}
