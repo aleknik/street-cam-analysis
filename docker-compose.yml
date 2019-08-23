@@ -9,6 +9,8 @@ services:
       
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
+        volumes:
+          - esdata:/usr/share/elasticsearch/data
         environment:
           - cluster.name=street-cam-app
           - bootstrap.memory_lock=true
@@ -71,4 +73,5 @@ services:
           - elasticsearch
           - street-cam-classification
 
-    
+volumes:
+    esdata:
