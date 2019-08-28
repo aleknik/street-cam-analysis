@@ -1,6 +1,6 @@
 # street-cam-analysis
 
-System for gathering street camera images and detecting object from COCO dataset
+System for gathering street camera images and detecting objects from COCO dataset
 
 ## Getting started
 
