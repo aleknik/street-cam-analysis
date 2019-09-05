@@ -34,7 +34,7 @@ services:
           - elasticsearch
 
     street-cam-loader-1:
-        build: ./street-cam-loader
+        image: aleknik/street-cam-loader:latest
         environment:
           - RABBITMQ-HOST=rabbitmq
           - OFFSET-START=0
@@ -55,12 +55,12 @@ services:
     #       - rabbitmq
 
     street-cam-classification:
-        build: ./street-cam-classification
+        image: aleknik/street-cam-classification:latest
         ports:
           - "5000:80"
 
     street-cam-aggregator:
-        build: ./street-cam-aggregator
+        image: aleknik/street-cam-aggregator:latest
         environment:
           - ELASTICSEARCH-HOST=elasticsearch
           - DETECTION-API=http://street-cam-classification/api
