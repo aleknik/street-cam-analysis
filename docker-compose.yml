@@ -26,12 +26,10 @@ services:
     kibana:
         image: docker.elastic.co/kibana/kibana:6.5.3
         ports:
-          - "5601:5601"
+          - "80:5601"
         environment:
           - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
           - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
-        depends_on:
-          - elasticsearch
 
     street-cam-loader-1:
         image: aleknik/street-cam-loader:latest
@@ -41,9 +39,7 @@ services:
           - OFFSET-END=1000
           - JAVA_OPTS=-Xmx128m -Xms128m
           - WAIT_HOSTS=rabbitmq:15672
-          - WAIT_HOSTS_TIMEOUT=300
-        depends_on:
-          - rabbitmq
+          - WAIT_HOSTS_TIMEOUT=3000
 
     # street-cam-loader-2:
     #     build: ./street-cam-loader
@@ -54,24 +50,20 @@ services:
     #     depends_on:
     #       - rabbitmq
 
-    street-cam-classification:
-        image: aleknik/street-cam-classification:latest
-        ports:
-          - "5000:80"
+    # street-cam-classification:
+    #     image: aleknik/street-cam-classification:latest
+    #     ports:
+    #       - "5000:80"
 
     street-cam-aggregator:
         image: aleknik/street-cam-aggregator:latest
         environment:
           - ELASTICSEARCH-HOST=elasticsearch
-          - DETECTION-API=http://street-cam-classification/api
+          - DETECTION-API=http://89902f29.ngrok.io/api
           - RABBITMQ-HOST=rabbitmq
           - JAVA_OPTS=-Xmx128m -Xms128m
-          - WAIT_HOSTS=street-cam-classification:80,elasticsearch:9300,rabbitmq:15672
-          - WAIT_HOSTS_TIMEOUT=300
-        depends_on:
-          - rabbitmq
-          - elasticsearch
-          - street-cam-classification
+          - WAIT_HOSTS= 89902f29.ngrok.io:80,elasticsearch:9300,rabbitmq:15672
+          - WAIT_HOSTS_TIMEOUT=3000
 
 volumes:
     esdata:

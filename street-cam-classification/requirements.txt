@@ -1,3 +1,5 @@
 Flask
-mxnet
+# mxnet
+mxnet-cu101
 gluoncv
+numpy

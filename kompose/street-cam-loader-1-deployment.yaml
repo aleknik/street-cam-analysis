@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: D:\dev\master_rad\street-cam-analysis\kompose\kompose.exe convert
+      -f ..\docker-compose.yml
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: street-cam-loader-1
+  name: street-cam-loader-1
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: street-cam-loader-1
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -Xmx128m -Xms128m
+        - name: OFFSET-END
+          value: "1000"
+        - name: OFFSET-START
+          value: "0"
+        - name: RABBITMQ-HOST
+          value: rabbitmq
+        - name: WAIT_HOSTS
+          value: rabbitmq:15672
+        - name: WAIT_HOSTS_TIMEOUT
+          value: "3000"
+        image: aleknik/street-cam-loader:latest
+        name: street-cam-loader-1
+        resources: {}
+      restartPolicy: Always
+status: {}
