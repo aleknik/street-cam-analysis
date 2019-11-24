@@ -3,6 +3,7 @@ routing-key: street.cam.*
 queue-name: street.cam.image
 offset-start: ${OFFSET-START}
 offset-end: ${OFFSET-END}
+rate: 1800000
 
 spring:
   rabbitmq:

@@ -29,7 +29,7 @@ public class MessageSenderTask {
         this.messageSenderService = messageSenderService;
     }
 
-    @Scheduled(fixedDelay = 300000)
+    @Scheduled(fixedDelayString = "${rate}")
     public void task() {
         int offset = offsetStart;
         int limit = 50;

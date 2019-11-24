@@ -79,6 +79,7 @@ public class StreetCamService {
                         x.getLocation().getLatitude(),
                         x.getLocation().getLongitude(),
                         new Date()))
+                .filter(x -> !x.getImgBase64().isEmpty())
                 .collect(Collectors.toList());
     }
 

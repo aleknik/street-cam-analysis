@@ -2,7 +2,7 @@ import mxnet as mx
 import numpy as np
 from gluoncv import model_zoo, data
 
-net = model_zoo.get_model('faster_rcnn_resnet101_v1d_coco', pretrained=True, ctx=mx.gpu(0))
+net = model_zoo.get_model('faster_rcnn_fpn_resnet101_v1d_coco', pretrained=True, ctx=mx.gpu(0))
 
 
 def count_frequency(my_list, labels):
