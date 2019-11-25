@@ -2,7 +2,6 @@ import base64
 import io
 import json
 
-import mxnet as mx
 from PIL import Image
 from flask import Flask, Response
 from flask import request
@@ -19,7 +18,7 @@ def detect():
     print('Request received')
     decoded = base64.b64decode(json_data['data'])
     image = Image.open(io.BytesIO(decoded))
-    data = predict(mx.nd.array(image))
+    data = predict(image)
 
     js = json.dumps(data)
 

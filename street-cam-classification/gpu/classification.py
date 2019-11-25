@@ -15,7 +15,7 @@ def count_frequency(my_list, labels):
 
 
 def predict(img):
-    x, orig_img = data.transforms.presets.rcnn.transform_test(img)
+    x, orig_img = data.transforms.presets.rcnn.transform_test(mx.nd.array(img))
     box_ids, scores, bboxes = net(x.as_in_context(mx.gpu(0)))
 
     box_ids = box_ids[0, :, 0].astype(int).asnumpy()

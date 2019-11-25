@@ -1,3 +1,4 @@
+import mxnet as mx
 import numpy as np
 from gluoncv import model_zoo, data
 
@@ -14,7 +15,7 @@ def count_frequency(my_list, labels):
 
 
 def predict(img):
-    x, orig_img = data.transforms.presets.rcnn.transform_test(img)
+    x, orig_img = data.transforms.presets.rcnn.transform_test(mx.nd.array(img))
     box_ids, scores, bboxes = net(x)
 
     box_ids = box_ids[0, :, 0].astype(int).asnumpy()
