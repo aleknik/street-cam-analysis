@@ -3,6 +3,7 @@ package io.github.aleknik.streetcamloader.service;
 import io.github.aleknik.streetcamloader.model.dto.TravelApiResponseWrapper;
 import io.github.aleknik.streetcamloader.util.ImageDownloader;
 import model.StreetCamInfo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -46,6 +47,9 @@ import java.util.stream.Collectors;
 @Service
 public class StreetCamService {
 
+    @Value("${camera-api-key}")
+    private String cameraApiKey;
+
     private final RestTemplate restTemplate;
 
     public StreetCamService(RestTemplate restTemplate) {
@@ -57,7 +61,7 @@ public class StreetCamService {
         String url = String.format("https://webcamstravel.p.rapidapi.com/webcams/list/orderby=popularity,desc/property=hd/limit=%d,%d", limit, offset);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("x-rapidapi-key", "0b89c7c422msh7784d5c4cfba68ep1b446cjsn77ba16461134");
+        headers.set("x-rapidapi-key", cameraApiKey);
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
                 .queryParam("lang", "en")

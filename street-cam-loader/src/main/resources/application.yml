@@ -5,6 +5,8 @@ offset-start: ${OFFSET-START}
 offset-end: ${OFFSET-END}
 rate: 1800000
 
+camera-api-key: 0b89c7c422msh7784d5c4cfba68ep1b446cjsn77ba16461134
+
 spring:
   rabbitmq:
     host: ${RABBITMQ-HOST}
