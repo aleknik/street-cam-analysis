@@ -41,28 +41,19 @@ services:
           - WAIT_HOSTS=rabbitmq:15672
           - WAIT_HOSTS_TIMEOUT=3000
 
-    # street-cam-loader-2:
-    #     build: ./street-cam-loader
-    #     environment:
-    #       - RABBITMQ-HOST=rabbitmq
-    #       - OFFSET-START=1000
-    #       - OFFSET-END=2000
-    #     depends_on:
-    #       - rabbitmq
-
-    # street-cam-classification:
-    #     image: aleknik/street-cam-classification:latest
-    #     ports:
-    #       - "5000:80"
+    street-cam-classification:
+        image: aleknik/street-cam-classification:latest
+        ports:
+          - "5000:80"
 
     street-cam-aggregator:
         image: aleknik/street-cam-aggregator:latest
         environment:
           - ELASTICSEARCH-HOST=elasticsearch
-          - DETECTION-API=http://89902f29.ngrok.io/api
+          - DETECTION-API=http://street-cam-classification/api
           - RABBITMQ-HOST=rabbitmq
           - JAVA_OPTS=-Xmx128m -Xms128m
-          - WAIT_HOSTS= 89902f29.ngrok.io:80,elasticsearch:9300,rabbitmq:15672
+          - WAIT_HOSTS=street-cam-classification:80,elasticsearch:9300,rabbitmq:15672
           - WAIT_HOSTS_TIMEOUT=3000
 
 volumes:

@@ -6,8 +6,8 @@ from PIL import Image
 from flask import Flask, Response
 from flask import request
 
-# from cpu.classification import predict
-from gpu.classification import predict
+from cpu.classification import predict
+# from gpu.classification import predict
 
 app = Flask(__name__)
 
