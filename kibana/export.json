@@ -17,31 +17,6 @@
     }
   },
   {
-    "_id": "343ff800-0ead-11ea-a694-159e5a622fe8",
-    "_type": "dashboard",
-    "_source": {
-      "title": "People",
-      "hits": 0,
-      "description": "",
-      "panelsJSON": "[{\"gridData\":{\"w\":24,\"h\":15,\"x\":0,\"y\":0,\"i\":\"1\"},\"version\":\"6.5.3\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"id\":\"279ec8b0-0ead-11ea-a694-159e5a622fe8\",\"embeddableConfig\":{}}]",
-      "optionsJSON": "{\"darkTheme\":false,\"useMargins\":true,\"hidePanelTitles\":false}",
-      "version": 1,
-      "timeRestore": true,
-      "timeTo": "2019-11-25T22:59:59.999Z",
-      "timeFrom": "2019-11-23T23:00:00.000Z",
-      "refreshInterval": {
-        "pause": true,
-        "value": 0
-      },
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
     "_id": "ceca6050-0ecf-11ea-a694-159e5a622fe8",
     "_type": "visualization",
     "_source": {
@@ -160,6 +135,31 @@
       },
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "343ff800-0ead-11ea-a694-159e5a622fe8",
+    "_type": "dashboard",
+    "_source": {
+      "title": "People",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":16,\"i\":\"1\"},\"version\":\"6.5.3\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"id\":\"279ec8b0-0ead-11ea-a694-159e5a622fe8\",\"embeddableConfig\":{}},{\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":15,\"i\":\"2\"},\"version\":\"6.5.3\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"id\":\"ceca6050-0ecf-11ea-a694-159e5a622fe8\",\"embeddableConfig\":{}},{\"gridData\":{\"w\":24,\"h\":15,\"x\":24,\"y\":16,\"i\":\"3\"},\"version\":\"6.5.3\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"id\":\"543f13d0-0ede-11ea-a694-159e5a622fe8\",\"embeddableConfig\":{}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"useMargins\":true,\"hidePanelTitles\":false}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2019-11-25T22:59:59.999Z",
+      "timeFrom": "2019-11-23T23:00:00.000Z",
+      "refreshInterval": {
+        "pause": true,
+        "value": 0
+      },
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[]}"
       }
     },
     "_meta": {
